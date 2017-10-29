@@ -217,3 +217,26 @@ counts the number of string type properties
   };
   alert(strCount(object1));
 ```
+
+11. Write a function that adds up numbers on a double call. we create a function which create another functoin inside it and then the other function alert the sum of the two inputs
+```
+function makeCounter(a) {
+			return function(b) {
+				return alert(a+b);
+			}
+		}
+		makeCounter(9)(4); 
+```
+
+12.	 Why is the first equality wrong, and the second is true?
+```
+		 alert( [] == [] ); // false
+		alert( [] ==! [] ); // true
+```
+What transformations occur in the calculation?
+
+1 - the first equation will be false, because two objects can be equal only if it is the same object.
+2 - the equation will be true, since the right part! [] will convert the argument to the logical type, the array is the object, therefore, the array will be true, "!" - will change it to false.
+equating the array with a primitive causes the array to be converted to a numeric value; the toString method converts it to an empty string, since there is no valueOf in the array. Empty string is false.
+
+
