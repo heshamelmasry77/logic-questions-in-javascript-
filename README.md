@@ -236,7 +236,11 @@ function makeCounter(a) {
 What transformations occur in the calculation?
 
 1 - the first equation will be false, because two objects can be equal only if it is the same object.
+
+
 2 - the equation will be true, since the right part! [] will convert the argument to the logical type, the array is the object, therefore, the array will be true, "!" - will change it to false.
+
+
 equating the array with a primitive causes the array to be converted to a numeric value; the toString method converts it to an empty string, since there is no valueOf in the array. Empty string is false.
 
 
