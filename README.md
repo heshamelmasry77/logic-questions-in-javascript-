@@ -98,7 +98,7 @@ bigToSmall([[1,1],[1],[1,1]])  "1>1>1>1>1"
     return arr2.join('>');
 ```
 
-5. What will be the result of this code?
+6. What will be the result of this code?
 Will the external variable value change? How will the result change
 if the var keyword is removed from the string var value = false?
 ```
@@ -121,3 +121,99 @@ Accordingly, the result in the absence of the keyword var will not change,
 unless you change the first condition that will not be executed, then value will
 be rewritten because it will become global.
 
+
+7.Write a function that returns the number of its own calls.(like how many times the function been called).
+
+```
+
+  var counterCall = function() {
+    var counter = 0;
+    return function() {
+      return ++counter;
+    };
+  };
+
+  var numberOfCalls = counterCall();
+  numberOfCalls();
+  numberOfCalls();
+  console.log(numberOfCalls());
+
+```
+
+8. The following code creates an array of shooters.
+According to the plan, each shooter should display his number.
+Now all the functions-arrows print 10 instead of their number.
+Correct the code so that when you call each of them,
+it displays its number (the index in the array). Suggest a few options.
+
+
+```
+function makeArmy() {
+		var shooters = []; 
+
+		for (var i = 0; i< 10; i++) {
+		    var shooter = (function (j) { // arrow function
+              return function(){
+		    		alert(j); // displays his number
+              }
+			})(i); 
+		
+			shooters.push(shooter); 
+		} 
+		return shooters; 
+	}
+	var army = makeArmy(); 
+	army[0](); //the arrow outputs 10, and should 0
+	army[5](); // the shooter outputs 10, but should 5.
+
+```
+
+9.  Write a function that takes 1 parameter. On the first call,
+it remembers it, the second - sums the
+transmitted parameter with the parameter transmitted during the previous call.
+
+```
+function sumAll(){
+		var total = 0;
+		return function(number){
+			return total += number;
+		}
+
+	}
+
+	var sum = sumAll();
+	alert(sum(3));
+	alert(sum(5));
+	alert(sum(228)); 
+```
+10.Create a strCount function
+that takes one argument (object) and
+counts the number of string type properties
+
+```
+
+  
+  function strCount(obj) {
+    console.log(obj);
+    var num = 0;
+    for(var prop in obj){
+      var item = obj[prop];
+      if(typeof item==='string'){
+        ++num;
+      }
+      if(typeof  item ==='object'){
+        num += strCount(item);
+      }
+    }
+    return num;
+  }
+
+  var object1 = {
+    key1: 2,
+    key2: 'name',
+    key3: 4,
+    key4: 'null',
+    key5: ['string', 5, ['adasd', 'asdasd']]
+  };
+  alert(strCount(object1));
+```
