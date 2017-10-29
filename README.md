@@ -98,3 +98,26 @@ bigToSmall([[1,1],[1],[1,1]])  "1>1>1>1>1"
     return arr2.join('>');
 ```
 
+5. What will be the result of this code?
+Will the external variable value change? How will the result change
+if the var keyword is removed from the string var value = false?
+```
+var value = 0;
+		function f() {
+			if (1) {
+				value = true;
+			} else {
+				var	value = false;
+			}
+			alert( value );
+		}
+		f();
+```
+
+Answer: the alert will print true, since the function
+fulfills only the first condition (because 1 is always true),
+the else does not work.
+Accordingly, the result in the absence of the keyword var will not change,
+unless you change the first condition that will not be executed, then value will
+be rewritten because it will become global.
+
