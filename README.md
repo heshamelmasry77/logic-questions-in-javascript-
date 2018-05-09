@@ -244,3 +244,8 @@ What transformations occur in the calculation?
 equating the array with a primitive causes the array to be converted to a numeric value; the toString method converts it to an empty string, since there is no valueOf in the array. Empty string is false.
 
 
+some other question i got asked 
+```console.log(false == '0')```
+// true becasue you are saying is fasle is equal string zero so yeah it is true it is equal '0'
+```console.log(false === '0') ```
+it is false becasue we are saying is it equal equal zero which is not false is not string '0' it is false
